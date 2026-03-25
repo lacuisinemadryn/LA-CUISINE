@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html class="light" lang="es"><head>
+<html lang="es"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
@@ -8,241 +8,326 @@
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script id="tailwind-config">
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            colors: {
-              "primary-container": "#b93d00",
-              "surface-container-high": "#e9e8e5",
-              "secondary": "#51606b",
-              "primary-fixed-dim": "#ffb59b",
-              "primary-fixed": "#ffdbcf",
-              "on-primary-fixed": "#380d00",
-              "outline": "#87736b",
-              "on-tertiary-fixed": "#001f24",
-              "surface-tint": "#a93700",
-              "outline-variant": "#dac1b8",
-              "tertiary-container": "#007280",
-              "surface-dim": "#dbdad7",
-              "surface-bright": "#faf9f6",
-              "on-secondary-container": "#55656f",
-              "on-tertiary-fixed-variant": "#004f59",
-              "on-primary-container": "#ffe1d7",
-              "on-surface-variant": "#54433c",
-              "on-primary-fixed-variant": "#812800",
-              "inverse-surface": "#2f312f",
-              "surface": "#faf9f6",
-              "surface-container-lowest": "#ffffff",
-              "surface-container": "#efeeeb",
-              "on-primary": "#ffffff",
-              "tertiary-fixed-dim": "#7fd3e3",
-              "secondary-container": "#d2e2ee",
-              "on-background": "#1a1c1a",
-              "on-secondary": "#ffffff",
-              "inverse-on-surface": "#f2f1ee",
-              "on-tertiary-container": "#aef2ff",
-              "error": "#ba1a1a",
-              "primary": "#902e00",
-              "on-secondary-fixed": "#0e1d26",
-              "tertiary-fixed": "#9defff",
-              "inverse-primary": "#ffb59b",
-              "on-error": "#ffffff",
-              "secondary-fixed-dim": "#b9c9d5",
-              "on-surface": "#1a1c1a",
-              "on-tertiary": "#ffffff",
-              "surface-container-low": "#f4f3f1",
-              "secondary-fixed": "#d5e5f1",
-              "tertiary": "#005863",
-              "surface-variant": "#e3e2e0",
-              "on-secondary-fixed-variant": "#3a4953",
-              "background": "#faf9f6",
-              "surface-container-highest": "#e3e2e0",
-              "error-container": "#ffdad6",
-              "on-error-container": "#93000a"
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-secondary-fixed-variant": "#3a4953",
+                        "tertiary-fixed": "#9defff",
+                        "on-secondary-fixed": "#0e1d26",
+                        "secondary": "#51606b",
+                        "on-error": "#ffffff",
+                        "surface-container-highest": "#e3e2e0",
+                        "inverse-surface": "#2f312f",
+                        "surface-container-high": "#e9e8e5",
+                        "inverse-on-surface": "#f2f1ee",
+                        "secondary-fixed": "#d5e5f1",
+                        "secondary-container": "#d2e2ee",
+                        "on-tertiary-container": "#aef2ff",
+                        "on-surface": "#1a1c1a",
+                        "on-primary-fixed": "#380d00",
+                        "surface-bright": "#faf9f6",
+                        "error": "#ba1a1a",
+                        "surface-container-lowest": "#ffffff",
+                        "background": "#faf9f6",
+                        "on-primary-container": "#ffe1d7",
+                        "on-tertiary-fixed": "#001f24",
+                        "on-background": "#1a1c1a",
+                        "primary-fixed-dim": "#ffb59b",
+                        "tertiary-container": "#007280",
+                        "surface-variant": "#e3e2e0",
+                        "surface-dim": "#dbdad7",
+                        "outline": "#87736b",
+                        "error-container": "#ffdad6",
+                        "surface-tint": "#a93700",
+                        "on-primary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "primary": "#902e00",
+                        "surface-container-low": "#f4f3f1",
+                        "outline-variant": "#dac1b8",
+                        "secondary-fixed-dim": "#b9c9d5",
+                        "inverse-primary": "#ffb59b",
+                        "tertiary-fixed-dim": "#7fd3e3",
+                        "on-tertiary": "#ffffff",
+                        "on-surface-variant": "#54433c",
+                        "surface-container": "#efeeeb",
+                        "primary-container": "#b93d00",
+                        "on-secondary-container": "#55656f",
+                        "tertiary": "#005863",
+                        "primary-fixed": "#ffdbcf",
+                        "on-tertiary-fixed-variant": "#004f59",
+                        "on-error-container": "#93000a",
+                        "surface": "#faf9f6",
+                        "on-primary-fixed-variant": "#812800"
+                    },
+                    fontFamily: {
+                        "headline": ["Noto Serif"],
+                        "body": ["Plus Jakarta Sans"],
+                        "label": ["Plus Jakarta Sans"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
             },
-            fontFamily: {
-              "headline": ["Noto Serif"],
-              "body": ["Plus Jakarta Sans"],
-              "label": ["Plus Jakarta Sans"]
-            },
-            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
-          },
-        },
-      }
+        }
     </script>
 <style>
         .material-symbols-outlined {
             font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
         }
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: #faf9f6;
-        }
-        h1, h2, h3 {
-            font-family: 'Noto Serif', serif;
-        }
-        .wireframe-block {
-            background-image: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(144, 46, 0, 0.03) 10px, rgba(144, 46, 0, 0.03) 20px);
-        }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #faf9f6; }
+        h1, h2, h3 { font-family: 'Noto Serif', serif; }
     </style>
 <style>
     body {
       min-height: max(884px, 100dvh);
     }
   </style>
-  </head>
-<body class="bg-surface text-on-surface mb-24">
-<!-- TopAppBar -->
-<header class="fixed top-0 w-full z-50 bg-[#faf9f6]/80 dark:bg-stone-900/80 backdrop-blur-xl">
-<div class="flex items-center justify-between px-6 py-4 w-full">
-<div class="flex items-center gap-4">
-<button class="text-[#902e00] dark:text-[#b93d00] hover:opacity-80 transition-opacity">
-<span class="material-symbols-outlined" data-icon="menu">menu</span>
-</button>
-<div class="font-['Noto_Serif'] font-black text-[#1a1c1a] dark:text-[#faf9f6] uppercase tracking-widest text-xl">
-                    LA CUISINE
-                </div>
-</div>
-<div class="flex items-center gap-4">
-<button class="text-[#902e00] dark:text-[#b93d00] hover:opacity-80 transition-opacity relative">
-<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
-<span class="absolute -top-1 -right-1 bg-primary text-on-primary text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">2</span>
-</button>
-</div>
+</head>
+<body class="bg-surface text-on-surface antialiased">
+<!-- Top Navigation Shell (Shared Component: TopAppBar) -->
+<header class="fixed top-0 w-full z-50 bg-stone-50/80 dark:bg-stone-950/80 backdrop-blur-md shadow-sm dark:shadow-none">
+<div class="flex justify-between items-center px-6 py-4 w-full">
+<span class="material-symbols-outlined text-orange-900 dark:text-orange-500" data-icon="restaurant_menu">restaurant_menu</span>
+<div class="text-2xl font-serif font-black uppercase tracking-widest text-orange-900 dark:text-orange-500">LA CUISINE</div>
+<div class="w-6"></div> <!-- Spacer for centering -->
 </div>
 </header>
-<main class="pt-24 px-6 max-w-5xl mx-auto space-y-12">
-<!-- Logo Section -->
-<section class="flex flex-col items-center justify-center py-8">
-<img alt="LA CUISINE Premium Logo" class="h-32 w-auto object-contain mb-4" data-alt="High-end restaurant logo for LA CUISINE with elegant serif typography and minimalist mark" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB1IKb-iuGWJUKX887zm8gS8HG62J-FaJ1Nde7IyJZfs1jhsHrFc-uPGUG2aI4h_JoAGlBRsK4OiJrZK041hHqcUmbYJ_OFvTCejoHmm5uczUK1jxt3mTv_eShqnrPUQ39ZIwG0bOnCV3-1388uPybuL4-jKXO1u2FM4w7pRrJ7QmsrJhh-IQsxjeqZWROMX-ZDJjYP1GeAhhKyUavIYq9z3ireztS5kdelxTztkbuW7MJrpxHtD3TgIy6jd348bHZ23YMQx5pqWCs9"/>
-<p class="font-headline italic text-on-surface-variant text-lg tracking-wide">Gastronomía Patagónica</p>
-</section>
-<!-- WhatsApp Ordering Section -->
-<section class="bg-surface-container-low rounded-xl p-8 text-center space-y-6">
-<h1 class="text-4xl md:text-5xl font-black text-on-surface leading-tight tracking-tight">
-                PEDIR POR WHATSAPP
-            </h1>
-<p class="text-on-surface-variant max-w-lg mx-auto body-md">
-                Disfrutá de nuestra cocina artesanal en la comodidad de tu casa. Pedidos directos y entrega rápida.
-            </p>
-<a class="inline-flex items-center gap-3 bg-primary text-on-primary px-8 py-4 rounded-xl font-bold text-lg hover:opacity-90 transition-all shadow-lg active:scale-95" href="https://wa.me/5492804409835">
-<span class="material-symbols-outlined" data-icon="chat">chat</span>
-                +54 9 280 440-9835
-            </a>
-</section>
-<!-- Product Catalog (Bento Grid Style) -->
-<section class="space-y-8">
-<div class="flex items-end justify-between border-b-[0.5px] border-outline-variant/30 pb-4">
-<h2 class="text-3xl font-bold text-primary">Nuestra Carta</h2>
-<div class="flex gap-2">
-<span class="bg-surface-container-high px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest text-on-surface-variant">Pizzas</span>
-<span class="bg-surface-container-high px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest text-on-surface-variant">Burgers</span>
+<main class="pt-24 pb-32 px-4 max-w-5xl mx-auto">
+<!-- Brand Anchor Header -->
+<div class="flex flex-col items-center mb-12">
+<div class="w-32 h-32 rounded-full bg-surface-container-high flex items-center justify-center mb-6 overflow-hidden w-full max-w-2xl px-4 mb-8">
+<img alt="LA CUISINE Logo" class="w-full h-full object-contain p-4 w-full h-auto" data-alt="minimalist logo for an artisanal restaurant featuring elegant serif typography and a subtle flame or hearth icon" src="https://lh3.googleusercontent.com/aida/ADBb0uhGBJgusPZ5TAQckbeZ9oRMuFFK2ORcpnxHNAP9fA_z9BPAbKnlF5MyY_VhzjSGvzGIwDOh3trujX-SHJwVKMEPX4KxZSYZfbVMdoJRimHieUqWQ9-IPL_Pvi3XIOA0M6y3qGYjKVuybByvEoprwsfOuT0BZR4qEendbYJmyhOQSCc1HY4jIbJtBmWunm-I8LzjYLiB4uOTOmNePczeEsOEwnxkP79ucLjqKvFgiG3rjecrmczUliriAFLNXF17J8KtqejUq8OTfW4"/>
 </div>
+<h1 class="text-4xl md:text-5xl font-black text-on-surface text-center tracking-tight mb-2 uppercase text-lg font-bold text-on-surface-variant/80 tracking-widest mb-1">Sabores de la Patagonia</h1>
+<p class="text-on-surface-variant font-medium text-center max-w-md">Tradición, fuego y productos locales en el corazón de Puerto Madryn.</p>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Section 1: Catalog -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<div class="lg:col-span-2 space-y-12">
+<!-- Pizzas Category -->
+<section>
+<div class="flex items-baseline justify-between mb-8 border-b border-outline-variant/20 pb-2">
+<h2 class="text-3xl font-bold text-primary italic">Pizzas</h2>
+<span class="text-sm font-bold tracking-widest uppercase text-on-surface-variant/60">Artesanales</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 <!-- Pizza Item 1 -->
-<div class="group flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden transition-all hover:shadow-xl">
-<div class="aspect-[4/3] bg-primary/10 wireframe-block flex items-center justify-center">
-<span class="material-symbols-outlined text-primary/20 text-6xl" data-icon="local_pizza">local_pizza</span>
+<div class="bg-surface-container-low rounded-xl p-4 flex flex-col group transition-all hover:bg-surface-container">
+<div class="w-full aspect-video bg-orange-200/40 rounded-lg mb-4 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary/30 text-5xl" data-icon="local_pizza">local_pizza</span>
 </div>
-<div class="p-6 flex flex-col flex-grow space-y-3">
-<div class="flex justify-between items-start">
-<h3 class="text-xl font-bold text-on-surface">Margarita Clásica</h3>
-<span class="font-headline font-black text-primary">$8.500</span>
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-xl font-bold text-on-surface">PIZZA 1</h3>
+<span class="font-bold text-primary">$1.200</span>
 </div>
-<p class="text-on-surface-variant text-sm flex-grow">Pomodoro italiano, mozzarella fior di latte, albahaca fresca y aceite de oliva extra virgen.</p>
-<button class="w-full bg-surface-container-high text-on-surface font-bold py-3 rounded-lg hover:bg-primary hover:text-on-primary transition-colors flex items-center justify-center gap-2">
-<span class="material-symbols-outlined text-sm" data-icon="add_shopping_cart">add_shopping_cart</span>
-                            Agregar al carrito
-                        </button>
-</div>
-</div>
-<!-- Burger Item 1 -->
-<div class="group flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden transition-all hover:shadow-xl">
-<div class="aspect-[4/3] bg-secondary/10 wireframe-block flex items-center justify-center">
-<span class="material-symbols-outlined text-secondary/20 text-6xl" data-icon="lunch_dining">lunch_dining</span>
-</div>
-<div class="p-6 flex flex-col flex-grow space-y-3">
-<div class="flex justify-between items-start">
-<h3 class="text-xl font-bold text-on-surface">Royal Burger</h3>
-<span class="font-headline font-black text-primary">$9.200</span>
-</div>
-<p class="text-on-surface-variant text-sm flex-grow">Doble medallón de ternera, cheddar, panceta crocante, cebolla caramelizada y salsa secreta.</p>
-<button class="w-full bg-surface-container-high text-on-surface font-bold py-3 rounded-lg hover:bg-primary hover:text-on-primary transition-colors flex items-center justify-center gap-2">
-<span class="material-symbols-outlined text-sm" data-icon="add_shopping_cart">add_shopping_cart</span>
-                            Agregar al carrito
-                        </button>
-</div>
+<p class="text-sm text-on-surface-variant mb-6 line-clamp-2">Salsa de tomates naturales, mozzarella de campo y hierbas frescas.</p>
+<button class="mt-auto w-full py-3 bg-primary text-on-primary rounded-xl font-bold flex items-center justify-center gap-2 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+                                AGREGAR
+                            </button>
 </div>
 <!-- Pizza Item 2 -->
-<div class="group flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden transition-all hover:shadow-xl">
-<div class="aspect-[4/3] bg-tertiary-container/10 wireframe-block flex items-center justify-center">
-<span class="material-symbols-outlined text-tertiary-container/20 text-6xl" data-icon="local_pizza">local_pizza</span>
+<div class="bg-surface-container-low rounded-xl p-4 flex flex-col group transition-all hover:bg-surface-container">
+<div class="w-full aspect-video bg-red-200/40 rounded-lg mb-4 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary/30 text-5xl" data-icon="local_pizza">local_pizza</span>
 </div>
-<div class="p-6 flex flex-col flex-grow space-y-3">
-<div class="flex justify-between items-start">
-<h3 class="text-xl font-bold text-on-surface">Cuatro Quesos</h3>
-<span class="font-headline font-black text-primary">$9.800</span>
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-xl font-bold text-on-surface">PIZZA 2</h3>
+<span class="font-bold text-primary">$1.350</span>
 </div>
-<p class="text-on-surface-variant text-sm flex-grow">Mozzarella, parmesano, gorgonzola y fontina con nueces pecán y miel.</p>
-<button class="w-full bg-surface-container-high text-on-surface font-bold py-3 rounded-lg hover:bg-primary hover:text-on-primary transition-colors flex items-center justify-center gap-2">
-<span class="material-symbols-outlined text-sm" data-icon="add_shopping_cart">add_shopping_cart</span>
-                            Agregar al carrito
-                        </button>
+<p class="text-sm text-on-surface-variant mb-6 line-clamp-2">Combinación de cuatro quesos regionales con un toque de miel silvestre.</p>
+<button class="mt-auto w-full py-3 bg-primary text-on-primary rounded-xl font-bold flex items-center justify-center gap-2 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+                                AGREGAR
+                            </button>
 </div>
+<!-- Pizza Item 3 -->
+<div class="bg-surface-container-low rounded-xl p-4 flex flex-col group transition-all hover:bg-surface-container">
+<div class="w-full aspect-video bg-stone-300/40 rounded-lg mb-4 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary/30 text-5xl" data-icon="local_pizza">local_pizza</span>
+</div>
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-xl font-bold text-on-surface">PIZZA 3</h3>
+<span class="font-bold text-primary">$1.400</span>
+</div>
+<p class="text-sm text-on-surface-variant mb-6 line-clamp-2">Fugazzeta rellena con cebollas caramelizadas al rescoldo.</p>
+<button class="mt-auto w-full py-3 bg-primary text-on-primary rounded-xl font-bold flex items-center justify-center gap-2 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+                                AGREGAR
+                            </button>
+</div>
+<!-- Pizza Item 4 -->
+<div class="bg-surface-container-low rounded-xl p-4 flex flex-col group transition-all hover:bg-surface-container">
+<div class="w-full aspect-video bg-amber-200/40 rounded-lg mb-4 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary/30 text-5xl" data-icon="local_pizza">local_pizza</span>
+</div>
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-xl font-bold text-on-surface">PIZZA 4</h3>
+<span class="font-bold text-primary">$1.500</span>
+</div>
+<p class="text-sm text-on-surface-variant mb-6 line-clamp-2">Especial de la casa con jamón crudo y rúcula orgánica.</p>
+<button class="mt-auto w-full py-3 bg-primary text-on-primary rounded-xl font-bold flex items-center justify-center gap-2 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+                                AGREGAR
+                            </button>
+</div>
+<!-- Pizza Item 5 -->
+<div class="bg-surface-container-low rounded-xl p-4 flex flex-col group transition-all hover:bg-surface-container">
+<div class="w-full aspect-video bg-emerald-200/40 rounded-lg mb-4 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary/30 text-5xl" data-icon="local_pizza">local_pizza</span>
+</div>
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-xl font-bold text-on-surface">PIZZA 5</h3>
+<span class="font-bold text-primary">$1.150</span>
+</div>
+<p class="text-sm text-on-surface-variant mb-6 line-clamp-2">Vegetales de estación asados a la leña con aceite de oliva.</p>
+<button class="mt-auto w-full py-3 bg-primary text-on-primary rounded-xl font-bold flex items-center justify-center gap-2 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+                                AGREGAR
+                            </button>
 </div>
 </div>
 </section>
-<!-- Cart Summary Section -->
-<section class="bg-surface-container-highest/50 backdrop-blur rounded-2xl p-8 border border-outline-variant/10">
-<div class="flex items-center gap-4 mb-8">
-<span class="material-symbols-outlined text-primary text-3xl" data-icon="shopping_bag">shopping_bag</span>
-<h2 class="text-2xl font-bold text-on-surface">Resumen de tu Pedido</h2>
+<!-- Hamburguesas Category -->
+<section>
+<div class="flex items-baseline justify-between mb-8 border-b border-outline-variant/20 pb-2">
+<h2 class="text-3xl font-bold text-primary italic">Hamburguesas</h2>
+<span class="text-sm font-bold tracking-widest uppercase text-on-surface-variant/60">Gourmet</span>
 </div>
-<div class="space-y-4 mb-8">
-<div class="flex justify-between items-center py-2">
-<div class="flex gap-4 items-center">
-<span class="w-8 h-8 flex items-center justify-center bg-primary-fixed text-on-primary-fixed rounded-lg font-bold text-xs">1</span>
-<span class="font-medium text-on-surface">Margarita Clásica</span>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Burger Item 1 -->
+<div class="bg-surface-container-low rounded-xl p-4 flex flex-col group transition-all hover:bg-surface-container">
+<div class="w-full aspect-video bg-stone-400/40 rounded-lg mb-4 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary/30 text-5xl" data-icon="lunch_dining">lunch_dining</span>
 </div>
-<span class="font-headline font-bold">$8.500</span>
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-xl font-bold text-on-surface">HAMBURGUESA 1</h3>
+<span class="font-bold text-primary">$1.800</span>
 </div>
-<div class="flex justify-between items-center py-2">
-<div class="flex gap-4 items-center">
-<span class="w-8 h-8 flex items-center justify-center bg-primary-fixed text-on-primary-fixed rounded-lg font-bold text-xs">1</span>
-<span class="font-medium text-on-surface">Royal Burger</span>
+<p class="text-sm text-on-surface-variant mb-6 line-clamp-2">Doble carne, cheddar maduro y bacon crocante en pan brioche.</p>
+<button class="mt-auto w-full py-3 bg-primary text-on-primary rounded-xl font-bold flex items-center justify-center gap-2 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+                                AGREGAR
+                            </button>
 </div>
-<span class="font-headline font-bold">$9.200</span>
+<!-- Burger Item 2 -->
+<div class="bg-surface-container-low rounded-xl p-4 flex flex-col group transition-all hover:bg-surface-container">
+<div class="w-full aspect-video bg-yellow-600/20 rounded-lg mb-4 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary/30 text-5xl" data-icon="lunch_dining">lunch_dining</span>
 </div>
-<div class="pt-4 mt-4 border-t border-outline-variant/20 flex justify-between items-center">
-<span class="text-xl font-bold text-on-surface">Total</span>
-<span class="text-2xl font-black text-primary">$17.700</span>
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-xl font-bold text-on-surface">HAMBURGUESA 2</h3>
+<span class="font-bold text-primary">$1.950</span>
+</div>
+<p class="text-sm text-on-surface-variant mb-6 line-clamp-2">Con cebolla caramelizada, queso azul y nueces tostadas.</p>
+<button class="mt-auto w-full py-3 bg-primary text-on-primary rounded-xl font-bold flex items-center justify-center gap-2 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+                                AGREGAR
+                            </button>
+</div>
+<!-- Burger Item 3 -->
+<div class="bg-surface-container-low rounded-xl p-4 flex flex-col group transition-all hover:bg-surface-container">
+<div class="w-full aspect-video bg-stone-500/30 rounded-lg mb-4 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary/30 text-5xl" data-icon="lunch_dining">lunch_dining</span>
+</div>
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-xl font-bold text-on-surface">HAMBURGUESA 3</h3>
+<span class="font-bold text-primary">$2.100</span>
+</div>
+<p class="text-sm text-on-surface-variant mb-6 line-clamp-2">Criolla: con provoleta asada, chimichurri y pimientos rojos.</p>
+<button class="mt-auto w-full py-3 bg-primary text-on-primary rounded-xl font-bold flex items-center justify-center gap-2 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+                                AGREGAR
+                            </button>
+</div>
+<!-- Burger Item 4 -->
+<div class="bg-surface-container-low rounded-xl p-4 flex flex-col group transition-all hover:bg-surface-container">
+<div class="w-full aspect-video bg-red-800/20 rounded-lg mb-4 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary/30 text-5xl" data-icon="lunch_dining">lunch_dining</span>
+</div>
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-xl font-bold text-on-surface">HAMBURGUESA 4</h3>
+<span class="font-bold text-primary">$1.750</span>
+</div>
+<p class="text-sm text-on-surface-variant mb-6 line-clamp-2">Clásica con lechuga, tomate y nuestra salsa secreta ahumada.</p>
+<button class="mt-auto w-full py-3 bg-primary text-on-primary rounded-xl font-bold flex items-center justify-center gap-2 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+                                AGREGAR
+                            </button>
+</div>
+<!-- Burger Item 5 -->
+<div class="bg-surface-container-low rounded-xl p-4 flex flex-col group transition-all hover:bg-surface-container">
+<div class="w-full aspect-video bg-emerald-800/20 rounded-lg mb-4 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary/30 text-5xl" data-icon="lunch_dining">lunch_dining</span>
+</div>
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-xl font-bold text-on-surface">HAMBURGUESA 5</h3>
+<span class="font-bold text-primary">$1.850</span>
+</div>
+<p class="text-sm text-on-surface-variant mb-6 line-clamp-2">Vegetariana: Medallón de lentejas y remolacha con palta y brotes.</p>
+<button class="mt-auto w-full py-3 bg-primary text-on-primary rounded-xl font-bold flex items-center justify-center gap-2 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+                                AGREGAR
+                            </button>
 </div>
 </div>
-<button class="w-full bg-[#25D366] text-white py-4 rounded-xl font-black uppercase tracking-widest flex items-center justify-center gap-3 shadow-lg hover:opacity-90 active:scale-95 transition-all">
-<span class="material-symbols-outlined" data-icon="send">send</span>
-                Enviar Pedido por WhatsApp
-            </button>
 </section>
+</div>
+<!-- Section 2: Cart -->
+<aside class="lg:col-span-1">
+<div class="sticky top-24 bg-surface-container-highest/50 backdrop-blur-sm rounded-2xl p-6 border border-outline-variant/30 flex flex-col h-fit">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary" data-icon="shopping_basket">shopping_basket</span>
+<h2 class="text-2xl font-bold tracking-tight">Mi Pedido</h2>
+</div>
+<!-- Empty State Placeholder -->
+<div class="flex flex-col items-center justify-center py-16 text-center">
+<div class="w-20 h-20 bg-surface-container rounded-full flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-on-surface-variant/40 text-4xl" data-icon="no_meals">no_meals</span>
+</div>
+<p class="text-on-surface-variant font-medium">Tu carrito está vacío</p>
+<p class="text-xs text-on-surface-variant/60 mt-2">Agrega algo rico del menú para comenzar</p>
+</div>
+<!-- Visual Representation of a populated list (Commented/Simulated) -->
+<!-- 
+                    <div class="space-y-4 mb-8">
+                        <div class="flex justify-between items-center bg-surface-container-low p-3 rounded-lg">
+                            <div>
+                                <p class="font-bold text-sm">PIZZA 1</p>
+                                <p class="text-xs text-on-surface-variant">x1 Unidad</p>
+                            </div>
+                            <span class="font-bold text-primary">$1.200</span>
+                        </div>
+                    </div>
+                    -->
+<div class="mt-6 pt-6 border-t border-outline-variant/30">
+<div class="flex justify-between items-center mb-8">
+<span class="text-on-surface-variant font-bold uppercase tracking-widest text-xs">Total Est.</span>
+<span class="text-2xl font-black text-on-surface">$0</span>
+</div>
+<!-- CTA Button -->
+<a class="block w-full py-5 bg-primary text-on-primary rounded-full font-black text-center tracking-widest uppercase text-sm shadow-xl shadow-primary/20 active:scale-95 transition-transform" href="https://wa.me/5492804409835" target="_blank">
+                            PEDIR POR WHATSAPP
+                        </a>
+</div>
+</div>
+</aside>
+</div>
 </main>
-<!-- BottomNavBar -->
-<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-2 bg-[#faf9f6]/90 dark:bg-stone-900/90 backdrop-blur-lg rounded-t-[1.5rem] shadow-[0_-12px_32px_rgba(26,28,26,0.04)]">
-<a class="flex flex-col items-center justify-center bg-[#f4f3f1] dark:bg-stone-800 text-[#902e00] dark:text-[#b93d00] rounded-2xl p-2 transition-transform active:scale-90" href="#">
-<span class="material-symbols-outlined" data-icon="restaurant_menu">restaurant_menu</span>
-<span class="font-['Plus_Jakarta_Sans'] font-medium text-[10px] uppercase tracking-tighter mt-1">Menu</span>
-</a>
-<a class="flex flex-col items-center justify-center text-[#54433c] dark:text-stone-400 p-2 transition-transform active:scale-90" href="#">
+<!-- Bottom Navigation Shell (Shared Component: BottomNavBar) -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center pb-6 pt-3 px-4 bg-stone-50/90 dark:bg-stone-950/90 backdrop-blur-xl rounded-t-3xl z-50 shadow-[0_-8px_24px_rgba(26,28,26,0.06)] border-t border-stone-200/20 dark:border-stone-800/20">
+<div class="flex flex-col items-center justify-center bg-stone-200/50 dark:bg-stone-800/50 text-orange-900 dark:text-orange-400 rounded-2xl px-6 py-2 transition-colors active:scale-90 duration-150">
+<span class="material-symbols-outlined" data-icon="menu_book">menu_book</span>
+<span class="font-sans text-[11px] font-semibold uppercase tracking-wider">Menu</span>
+</div>
+<div class="flex flex-col items-center justify-center text-stone-500 dark:text-stone-500 px-6 py-2 hover:bg-stone-100 dark:hover:bg-stone-900 transition-colors active:scale-90 duration-150">
 <span class="material-symbols-outlined" data-icon="shopping_bag">shopping_bag</span>
-<span class="font-['Plus_Jakarta_Sans'] font-medium text-[10px] uppercase tracking-tighter mt-1">Cart</span>
-</a>
-<a class="flex flex-col items-center justify-center text-[#54433c] dark:text-stone-400 p-2 transition-transform active:scale-90" href="#">
-<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
-<span class="font-['Plus_Jakarta_Sans'] font-medium text-[10px] uppercase tracking-tighter mt-1">Orders</span>
-</a>
-<a class="flex flex-col items-center justify-center text-[#54433c] dark:text-stone-400 p-2 transition-transform active:scale-90" href="https://wa.me/5492804409835">
+<span class="font-sans text-[11px] font-semibold uppercase tracking-wider">Cart</span>
+</div>
+<div class="flex flex-col items-center justify-center text-stone-500 dark:text-stone-500 px-6 py-2 hover:bg-stone-100 dark:hover:bg-stone-900 transition-colors active:scale-90 duration-150">
 <span class="material-symbols-outlined" data-icon="chat">chat</span>
-<span class="font-['Plus_Jakarta_Sans'] font-medium text-[10px] uppercase tracking-tighter mt-1">WhatsApp</span>
-</a>
+<span class="font-sans text-[11px] font-semibold uppercase tracking-wider">WhatsApp</span>
+</div>
 </nav>
 </body></html>
