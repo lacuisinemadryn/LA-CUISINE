@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700;900&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#902e00",
+                        "on-primary": "#ffffff",
+                        "surface": "#ffffff",
+                        "on-surface": "#1a1c1a",
+                        "on-surface-variant": "#54433c",
+                        "outline-variant": "#dac1b8",
+                        "surface-container-low": "#fcfcfc",
+                        "surface-container": "#f4f3f1",
+                        "surface-container-high": "#e9e8e5",
+                        "surface-container-highest": "#e3e2e0",
+                    },
+                    fontFamily: {
+                        "headline": ["Noto Serif"],
+                        "body": ["Plus Jakarta Sans"],
+                        "label": ["Plus Jakarta Sans"]
+                    },
+                    borderRadius: {"DEFAULT": "0rem", "lg": "0rem", "xl": "0rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #ffffff; }
+        h1, h2, h3 { font-family: 'Noto Serif', serif; }
+        .cart-item-enter { animation: slideIn 0.3s ease-out; }
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .toast {
+            position: fixed;
+            bottom: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 100;
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body class="bg-white text-on-surface antialiased">
+<!-- Variant 1: Minimal List with Sharp Contrast -->
+<header class="w-full z-50 bg-white border-b border-gray-100">
+<div class="flex justify-center items-center px-6 py-6 w-full">
+<div class="text-2xl font-serif font-black uppercase tracking-[0.2em] text-black">LA CUISINE</div>
+</div>
+</header>
+<main class="pt-8 pb-32 px-4 max-w-5xl mx-auto">
+<!-- Brand Anchor Header - Logo at top -->
+<div class="flex flex-col items-center mb-12">
+<div class="w-full max-w-xs mb-8">
+<img alt="LA CUISINE Logo" class="w-full h-auto" src="https://lh3.googleusercontent.com/aida/ADBb0uhGBJgusPZ5TAQckbeZ9oRMuFFK2ORcpnxHNAP9fA_z9BPAbKnlF5MyY_VhzjSGvzGIwDOh3trujX-SHJwVKMEPX4KxZSYZfbVMdoJRimHieUqWQ9-IPL_Pvi3XIOA0M6y3qGYjKVuybByvEoprwsfOuT0BZR4qEendbYJmyhOQSCc1HY4jIbJtBmWunm-I8LzjYLiB4uOTOmNePczeEsOEwnxkP79ucLjqKvFgiG3rjecrmczUliriAFLNXF17J8KtqejUq8OTfW4"/>
+</div>
+<h1 class="text-xs font-bold text-on-surface-variant/80 tracking-[0.3em] mb-2 uppercase text-center">Sabores de la Patagonia</h1>
+<p class="text-sm text-on-surface-variant font-medium text-center max-w-md opacity-70">Tradición, fuego y productos locales en el corazón de Puerto Madryn.</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+<div class="lg:col-span-2 space-y-16">
+<!-- Pizzas Category -->
+<section id="pizzas">
+<div class="flex items-baseline justify-between mb-10 border-b-2 border-black pb-2">
+<h2 class="text-2xl font-black uppercase tracking-widest text-black">Pizzas</h2>
+<span class="text-[10px] font-bold tracking-[0.2em] uppercase text-gray-400">Artesanales</span>
+</div>
+<div id="pizza-container" class="space-y-0 divide-y divide-gray-100"></div>
+</section>
+<!-- Hamburguesas Category -->
+<section id="hamburguesas">
+<div class="flex items-baseline justify-between mb-10 border-b-2 border-black pb-2">
+<h2 class="text-2xl font-black uppercase tracking-widest text-black">Hamburguesas</h2>
+<span class="text-[10px] font-bold tracking-[0.2em] uppercase text-gray-400">Gourmet</span>
+</div>
+<div id="burger-container" class="space-y-0 divide-y divide-gray-100"></div>
+</section>
+</div>
+<!-- Section 2: Cart -->
+<aside class="lg:col-span-1">
+<div class="sticky top-8 bg-white border-2 border-black p-8 flex flex-col h-fit">
+<div class="flex items-center gap-3 mb-8 border-b border-gray-100 pb-4">
+<span class="material-symbols-outlined text-black" data-icon="shopping_basket">shopping_basket</span>
+<h2 class="text-xl font-black uppercase tracking-widest">Mi Pedido</h2>
+</div>
+<!-- Cart Content -->
+<div class="space-y-4 mb-8 min-h-[100px]" id="cart-items">
+<!-- Empty State -->
+<div class="flex flex-col items-center justify-center py-8 text-center" id="cart-empty">
+<p class="text-xs text-gray-400 font-bold uppercase tracking-widest">Tu carrito está vacío</p>
+</div>
+</div>
+<div class="mt-auto pt-6 border-t-2 border-black">
+<div class="flex justify-between items-center mb-8">
+<span class="text-gray-400 font-bold uppercase tracking-widest text-[10px]">Total Est.</span>
+<span class="text-2xl font-black text-black" id="cart-total">$0</span>
+</div>
+<!-- CTA Button -->
+<a class="block w-full py-4 bg-black text-white font-black text-center tracking-[0.2em] uppercase text-xs hover:bg-gray-900 active:scale-95 transition-all opacity-50 pointer-events-none" href="https://wa.me/5492804409835" id="checkout-btn" target="_blank">
+                        FINALIZAR PEDIDO
+                    </a>
+</div>
+</div>
+</aside>
+</div>
+</main>
+<!-- Bottom Navigation for Mobile -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center pb-8 pt-4 px-4 bg-white border-t border-gray-100 z-50 md:hidden">
+<a class="flex flex-col items-center justify-center text-black px-4" href="#pizzas">
+<span class="material-symbols-outlined" data-icon="menu_book">menu_book</span>
+<span class="font-sans text-[9px] font-bold uppercase tracking-wider mt-1">Menu</span>
+</a>
+<div class="flex flex-col items-center justify-center text-gray-300 px-4 relative">
+<span class="material-symbols-outlined" data-icon="shopping_bag">shopping_bag</span>
+<span class="absolute -top-1 -right-1 bg-black text-white text-[8px] w-4 h-4 rounded-full flex items-center justify-center hidden" id="mobile-cart-count">0</span>
+<span class="font-sans text-[9px] font-bold uppercase tracking-wider mt-1">Pedido</span>
+</div>
+<a class="flex flex-col items-center justify-center text-gray-300 px-4" href="https://wa.me/5492804409835">
+<span class="material-symbols-outlined" data-icon="chat">chat</span>
+<span class="font-sans text-[9px] font-bold uppercase tracking-wider mt-1">WhatsApp</span>
+</a>
+</nav>
+<!-- Confirmation Toast -->
+<div class="toast hidden bg-black text-white px-6 py-3 text-[10px] font-bold uppercase tracking-widest shadow-2xl" id="toast">
+    Producto agregado
+</div>
+
+<script>
+const sheetURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSuv3zTUjpj--_0oX1rJVEYSstcGmRzal1417Xvc09vvCWMeRc4Tmds_tsGLIi0bmYnzAjDDs5vHPeh/pub?output=csv";
+
+fetch(sheetURL)
+.then(res => res.text())
+.then(data => {
+
+const rows = data.split("\n").slice(1);
+
+const pizzaContainer = document.getElementById("pizza-container");
+const burgerContainer = document.getElementById("burger-container");
+
+rows.forEach(row => {
+
+const cols = row.split(",");
+
+const categoria = cols[0];
+const nombre = cols[1];
+const precio = parseInt(cols[2]);
+const descripcion = cols[3];
+
+const icon = categoria === "hamburguesa" ? "lunch_dining" : "local_pizza";
+
+const item = `
+<div class="py-8 flex flex-col md:flex-row gap-6 group">
+<div class="w-full md:w-32 aspect-square bg-gray-50 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-gray-200 text-4xl">${icon}</span>
+</div>
+
+<div class="flex-grow">
+<div class="flex justify-between items-start mb-1">
+<h3 class="text-lg font-bold text-black uppercase tracking-tight">${nombre}</h3>
+<span class="font-bold text-black">$${precio}</span>
+</div>
+
+<p class="text-sm text-gray-500 mb-6 leading-relaxed">${descripcion}</p>
+
+<button class="add-btn px-6 py-2 border-2 border-black text-xs font-black uppercase tracking-widest"
+onclick="addToCart('${nombre}', ${precio})">
+AGREGAR
+</button>
+</div>
+</div>
+`;
+
+if(categoria === "pizza"){
+pizzaContainer.innerHTML += item;
+}
+
+if(categoria === "hamburguesa"){
+burgerContainer.innerHTML += item;
+}
+
+});
+
+});
+</script>
+
+<script>
+    let cart = [];
+    const cartItemsEl = document.getElementById('cart-items');
+    const cartEmptyEl = document.getElementById('cart-empty');
+    const cartTotalEl = document.getElementById('cart-total');
+    const checkoutBtn = document.getElementById('checkout-btn');
+    const mobileCartCount = document.getElementById('mobile-cart-count');
+    const toast = document.getElementById('toast');
+
+    function addToCart(name, price) {
+        const existingItem = cart.find(item => item.name === name);
+        if (existingItem) {
+            existingItem.quantity += 1;
+        } else {
+            cart.push({ name, price, quantity: 1 });
+        }
+        renderCart();
+        showToast(`${name} agregado`);
+    }
+
+    function removeFromCart(name) {
+        cart = cart.filter(item => item.name !== name);
+        renderCart();
+    }
+
+    function showToast(message) {
+        toast.textContent = message;
+        toast.classList.remove('hidden');
+        toast.classList.add('block');
+        setTimeout(() => {
+            toast.classList.add('hidden');
+            toast.classList.remove('block');
+        }, 2000);
+    }
+
+    function renderCart() {
+        if (cart.length === 0) {
+            cartItemsEl.innerHTML = '';
+            cartItemsEl.appendChild(cartEmptyEl);
+            cartEmptyEl.classList.remove('hidden');
+            cartTotalEl.textContent = '$0';
+            checkoutBtn.classList.add('opacity-50', 'pointer-events-none');
+            mobileCartCount.classList.add('hidden');
+            return;
+        }
+
+        cartEmptyEl.classList.add('hidden');
+        checkoutBtn.classList.remove('opacity-50', 'pointer-events-none');
+        
+        let total = 0;
+        let count = 0;
+        cartItemsEl.innerHTML = '';
+
+        cart.forEach(item => {
+            total += item.price * item.quantity;
+            count += item.quantity;
+
+            const div = document.createElement('div');
+            div.className = 'cart-item-enter flex justify-between items-center bg-gray-50 p-4';
+            div.innerHTML = `
+                <div>
+                    <p class="font-bold text-xs uppercase tracking-tight">${item.name}</p>
+                    <p class="text-[10px] text-gray-400 font-bold uppercase">x${item.quantity}</p>
+                </div>
+                <div class="flex items-center gap-4">
+                    <span class="font-bold text-sm text-black">$${(item.price * item.quantity).toLocaleString()}</span>
+                    <button onclick="removeFromCart('${item.name}')" class="text-gray-300 hover:text-black transition-colors">
+                        <span class="material-symbols-outlined text-sm" data-icon="close">close</span>
+                    </button>
+                </div>
+            `;
+            cartItemsEl.appendChild(div);
+        });
+
+        cartTotalEl.textContent = `$${total.toLocaleString()}`;
+        mobileCartCount.textContent = count;
+        mobileCartCount.classList.remove('hidden');
+
+        // Update WhatsApp link with order details
+        let orderText = "Hola La Cuisine! Me gustaría pedir:%0A";
+        cart.forEach(item => {
+            orderText += `- ${item.quantity}x ${item.name} ($${(item.price * item.quantity).toLocaleString()})%0A`;
+        });
+        orderText += `%0ATotal: $${total.toLocaleString()}`;
+        checkoutBtn.href = `https://wa.me/5492804409835?text=${orderText}`;
+    }
+</script>
+</body></html>
