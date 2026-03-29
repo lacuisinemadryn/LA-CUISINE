@@ -78,40 +78,7 @@
 <h2 class="text-2xl font-black uppercase tracking-widest text-black">Pizzas</h2>
 <span class="text-[10px] font-bold tracking-[0.2em] uppercase text-gray-400">Artesanales</span>
 </div>
-<div class="space-y-0 divide-y divide-gray-100">
-<!-- Pizza Item 1 -->
-<div class="py-8 flex flex-col md:flex-row gap-6 group">
-<div class="w-full md:w-32 aspect-square bg-gray-50 flex items-center justify-center shrink-0">
-<span class="material-symbols-outlined text-gray-200 text-4xl" data-icon="local_pizza">local_pizza</span>
-</div>
-<div class="flex-grow">
-<div class="flex justify-between items-start mb-1">
-<h3 class="text-lg font-bold text-black uppercase tracking-tight">PIZZA 1</h3>
-<span class="font-bold text-black">$1.200</span>
-</div>
-<p class="text-sm text-gray-500 mb-6 leading-relaxed">Salsa de tomates naturales, mozzarella de campo y hierbas frescas.</p>
-<button class="add-btn px-6 py-2 border-2 border-black text-xs font-black uppercase tracking-widest hover:bg-black hover:text-white transition-all active:scale-95" onclick="addToCart('PIZZA 1', 1200)">
-                                AGREGAR
-                            </button>
-</div>
-</div>
-<!-- Pizza Item 2 -->
-<div class="py-8 flex flex-col md:flex-row gap-6 group">
-<div class="w-full md:w-32 aspect-square bg-gray-50 flex items-center justify-center shrink-0">
-<span class="material-symbols-outlined text-gray-200 text-4xl" data-icon="local_pizza">local_pizza</span>
-</div>
-<div class="flex-grow">
-<div class="flex justify-between items-start mb-1">
-<h3 class="text-lg font-bold text-black uppercase tracking-tight">PIZZA 2</h3>
-<span class="font-bold text-black">$1.350</span>
-</div>
-<p class="text-sm text-gray-500 mb-6 leading-relaxed">Combinación de cuatro quesos regionales con un toque de miel silvestre.</p>
-<button class="add-btn px-6 py-2 border-2 border-black text-xs font-black uppercase tracking-widest hover:bg-black hover:text-white transition-all active:scale-95" onclick="addToCart('PIZZA 2', 1350)">
-                                AGREGAR
-                            </button>
-</div>
-</div>
-</div>
+<div id="pizza-container" class="space-y-0 divide-y divide-gray-100"></div>
 </section>
 <!-- Hamburguesas Category -->
 <section id="hamburguesas">
@@ -119,24 +86,7 @@
 <h2 class="text-2xl font-black uppercase tracking-widest text-black">Hamburguesas</h2>
 <span class="text-[10px] font-bold tracking-[0.2em] uppercase text-gray-400">Gourmet</span>
 </div>
-<div class="space-y-0 divide-y divide-gray-100">
-<!-- Burger Item 1 -->
-<div class="py-8 flex flex-col md:flex-row gap-6 group">
-<div class="w-full md:w-32 aspect-square bg-gray-50 flex items-center justify-center shrink-0">
-<span class="material-symbols-outlined text-gray-200 text-4xl" data-icon="lunch_dining">lunch_dining</span>
-</div>
-<div class="flex-grow">
-<div class="flex justify-between items-start mb-1">
-<h3 class="text-lg font-bold text-black uppercase tracking-tight">HAMBURGUESA 1</h3>
-<span class="font-bold text-black">$1.800</span>
-</div>
-<p class="text-sm text-gray-500 mb-6 leading-relaxed">Doble carne, cheddar maduro y bacon crocante en pan brioche.</p>
-<button class="add-btn px-6 py-2 border-2 border-black text-xs font-black uppercase tracking-widest hover:bg-black hover:text-white transition-all active:scale-95" onclick="addToCart('HAMBURGUESA 1', 1800)">
-                                AGREGAR
-                            </button>
-</div>
-</div>
-</div>
+<div id="burger-container" class="space-y-0 divide-y divide-gray-100"></div>
 </section>
 </div>
 <!-- Section 2: Cart -->
@@ -187,6 +137,65 @@
 <div class="toast hidden bg-black text-white px-6 py-3 text-[10px] font-bold uppercase tracking-widest shadow-2xl" id="toast">
     Producto agregado
 </div>
+
+<script>
+const sheetURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSuv3zTUjpj--_0oX1rJVEYSstcGmRzal1417Xvc09vvCWMeRc4Tmds_tsGLIi0bmYnzAjDDs5vHPeh/pub?output=csv";
+
+fetch(sheetURL)
+.then(res => res.text())
+.then(data => {
+
+const rows = data.split("\n").slice(1);
+
+const pizzaContainer = document.getElementById("pizza-container");
+const burgerContainer = document.getElementById("burger-container");
+
+rows.forEach(row => {
+
+const cols = row.split(",");
+
+const categoria = cols[0];
+const nombre = cols[1];
+const precio = parseInt(cols[2]);
+const descripcion = cols[3];
+
+const icon = categoria === "hamburguesa" ? "lunch_dining" : "local_pizza";
+
+const item = `
+<div class="py-8 flex flex-col md:flex-row gap-6 group">
+<div class="w-full md:w-32 aspect-square bg-gray-50 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-gray-200 text-4xl">${icon}</span>
+</div>
+
+<div class="flex-grow">
+<div class="flex justify-between items-start mb-1">
+<h3 class="text-lg font-bold text-black uppercase tracking-tight">${nombre}</h3>
+<span class="font-bold text-black">$${precio}</span>
+</div>
+
+<p class="text-sm text-gray-500 mb-6 leading-relaxed">${descripcion}</p>
+
+<button class="add-btn px-6 py-2 border-2 border-black text-xs font-black uppercase tracking-widest"
+onclick="addToCart('${nombre}', ${precio})">
+AGREGAR
+</button>
+</div>
+</div>
+`;
+
+if(categoria === "pizza"){
+pizzaContainer.innerHTML += item;
+}
+
+if(categoria === "hamburguesa"){
+burgerContainer.innerHTML += item;
+}
+
+});
+
+});
+</script>
+
 <script>
     let cart = [];
     const cartItemsEl = document.getElementById('cart-items');
